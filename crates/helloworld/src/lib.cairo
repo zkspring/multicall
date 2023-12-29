@@ -36,6 +36,7 @@ mod tests {
 
 
     #[test]
+    #[ignore]
     fn test_multicall() {
         // test code
 

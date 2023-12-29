@@ -1,0 +1,22 @@
+name: ci
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: software-mansion/setup-scarb@v1
+        with:
+          tool-version: .tool-versions
+      - run: scarb fmt --check
+      - run: scarb build
+      - run: scarb test
+      # https://github.com/crate-ci/typos/blob/master/docs/github-action.md
+      - name: check spelling
+        uses: crate-ci/typos@master
