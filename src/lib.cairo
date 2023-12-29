@@ -3,7 +3,7 @@ use starknet::{account::Call, ContractAddress, SyscallResult};
 #[starknet::interface]
 trait IMulticall<T> {
     fn call(self: @T, targets: Array<Call>) -> Array<SyscallResult<Span<felt252>>>;
-    fn send(ref self: T, targets: Array<Call>) -> Array<SyscallResult<Span<felt252>>>;
+    fn invoke(ref self: T, targets: Array<Call>) -> Array<SyscallResult<Span<felt252>>>;
 }
 
 #[starknet::contract]
@@ -20,7 +20,7 @@ mod Multicall {
             call(targets)
         }
 
-        fn send(
+        fn invoke(
             ref self: ContractState, targets: Array<Call>
         ) -> Array<SyscallResult<Span<felt252>>> {
             call(targets)
