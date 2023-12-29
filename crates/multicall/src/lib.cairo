@@ -14,7 +14,7 @@ mod Multicall {
     #[storage]
     struct Storage {}
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl Multicall of super::IMulticall<ContractState> {
         fn call(self: @ContractState, targets: Array<Call>) -> Array<SyscallResult<Span<felt252>>> {
             call(targets)
