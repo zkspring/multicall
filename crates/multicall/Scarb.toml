@@ -1,0 +1,22 @@
+[package]
+name = "multicall"
+version = "0.1.0"
+edition = "2023_10"
+
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest.html
+
+[dependencies]
+starknet.workspace = true
+snforge_std.workspace = true
+
+
+[lib]
+
+[[target.starknet-contract]]
+
+
+# [fmt]
+# sort-module-level-items = true
+
+[tool]
+fmt.workspace = true

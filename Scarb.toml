@@ -1,19 +1,16 @@
-[package]
-name = "multicall"
-version = "0.1.0"
-edition = "2023_10"
+[workspace]
+members = [
+    "crates/*",
+]
 
-# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest.html
-
-[dependencies]
+[workspace.dependencies]
 starknet = "2.4.1"
+snforge_std = { git = "https://github.com/foundry-rs/starknet-foundry.git", tag = "v0.13.1" }
+sncast_std = { git = "https://github.com/foundry-rs/starknet-foundry.git", tag = "v0.13.1" }
 
 
-[[target.starknet-contract]]
-casm = true
-# Enable allowed libfuncs validation.
-allowed-libfuncs = true
-allowed-libfuncs-list.name = "all"
+[workspace.tool.snforge]
+exit_first = true
 
-[tool.fmt]
+[workspace.tool.fmt]
 sort-module-level-items = true
